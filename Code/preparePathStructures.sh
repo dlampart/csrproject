@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ `ls | grep Data | wc -l` -eq "0" ];then
+if [ `ls | grep PaperDocs | wc -l` -eq "0" ];then
 ###
 ###
     echo "set up ExternalCode/ paths"
@@ -8,7 +8,6 @@ if [ `ls | grep Data | wc -l` -eq "0" ];then
 ###
 ###
     echo "set up Data/ paths"
-    mkdir Data/
     mkdir Data/motifData/
     mkdir Data/DHSfdr0.01/
     mkdir Data/genomicSequence/

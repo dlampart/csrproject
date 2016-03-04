@@ -1,27 +1,34 @@
 #!/bin/bash
 
-## input: Data/mapping_71.txt (Downloaded from http://www.stemformatics.org/contents/download_mappings)
-## input: Data/martEnsg2hgnc.txt (downloaded from biomart)
-## input: Data/UniProtGeneSymbolTable.tbl
-##  (downloaded from http://www.uniprot.org/uniprot/?query=*&fil=organism%3A%22Homo+sapiens+%28Human%29+%5B9606%5D%22, columns: Entry; Entry name; Gene names(primary))
-
-
 ###################################
 ## this script calls the 
 ## the processing script used in
 ## the paper 'papername'. in order
 ##
 ## while it should allow to replicate 
-## results with relative ease,
-## it's only semi-automatic.
-## in particular it doesn't build all
-## folders automatically, some data sets
-## have to be manually downloaded.
-## and the programs/libraries used
-## have to be installed manually too.
-## in case you have trouble to get it to run,
-## please contact the main author of the paper.
+## results with relative ease it's not guaranteed to work out-of-the-box.
+## 
+## notworthy failure points are installation
+## of R packages and external software.
+## and Download of external data.
+##
+## be warned: some of the steps are
+## very computation intensive.
+## a second pipeline (script Code/pipelineWithoutPreprocessing.R)
+## is available that skips preprocessing. It uses
+## precomputed data matrix in folder PreprocessedData/ .
+## Calling  Code/pipelineWithoutPreprocessing.R 
+## will overwrite processed data in interimData/
+## with processed data in PreprocessedData/ .
 ###################################
+
+## Data not automatically downloaded:
+## input: Data/mapping_71.txt (Downloaded from http://www.stemformatics.org/contents/download_mappings)
+## input: Data/martEnsg2hgnc.txt (downloaded from biomart)
+## input: Data/UniProtGeneSymbolTable.tbl
+##  (downloaded from http://www.uniprot.org/uniprot/?query=*&fil=organism%3A%22Homo+sapiens+%28Human%29+%5B9606%5D%22, columns: Entry; Entry name; Gene names(primary))
+
+
 bash Code/preparePathStructures.sh
 
 #######################################################
