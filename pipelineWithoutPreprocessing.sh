@@ -9,20 +9,29 @@
 ###################################
 ## this script calls the 
 ## the processing script used in
-## the paper 'papername'. in order
+## the paper 'papername'. 
 ##
-## while it should allow to replicate 
-## results with relative ease,
-## it's only semi-automatic.
-## in particular it doesn't build all
-## folders automatically, some data sets
-## have to be manually downloaded.
-## and the programs/libraries used
-## have to be installed manually too.
-## in case you have trouble to get it to run,
-## please contact the main author of the paper.
+## this pipeline uses precomputed data 
+## matrices in folder PreprocessedData/ .
+## Calling  Code/pipelineWithoutPreprocessing.R 
+## will overwrite some processed data in interimData/
+## with precomputed data in PreprocessedData/ .
+###################################
+##
 ###################################
 bash Code/preparePathStructures.sh
+
+
+##################################
+## Code/copyPreprocessedFiles.sh
+##
+## PreprocessedData/* /interimData/*
+##################################
+bash Code/copyPreprocessedFiles.sh
+
+ 
+
+
 
 #######################################################
 ## Code/prepareNormalizedMatricesDirectFinal.R
