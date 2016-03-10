@@ -1,5 +1,3 @@
-library(svglite)
-library(ggplot2)
 library(data.table)
 set.seed(1)
 source("Code/makeFigures/helperFunctionsFinal.R")

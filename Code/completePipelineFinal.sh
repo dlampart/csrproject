@@ -3,18 +3,20 @@
 ###################################
 ## this script calls the 
 ## the processing script used in
-## the paper 'papername'. in order
+## the paper
+## 'Genome-wide association between transcription factor expression and chromatin accessibility reveals chromatin state regulators'
+## in order.
 ##
 ## while it should allow to replicate 
 ## results with relative ease it's not guaranteed to work out-of-the-box.
 ## 
 ## notworthy failure points are installation
-## of R packages and external software.
-## and Download of external data.
+## of R packages, external software
+## and download of external data.
 ##
-## be warned: some of the steps are
-## very computation intensive.
-## a second pipeline (script Code/pipelineWithoutPreprocessing.R)
+## Be warned: some of the steps are
+## computationally very intensive.
+## A second pipeline (script Code/pipelineWithoutPreprocessing.R)
 ## is available that skips preprocessing. It uses
 ## precomputed data matrix in folder PreprocessedData/ .
 ## Calling  Code/pipelineWithoutPreprocessing.R 

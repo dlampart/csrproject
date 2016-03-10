@@ -1,6 +1,4 @@
 load("interimData/completeMotifFamilyTable.RData")
-library(multicore)
-library(ggplot2)
 library(data.table)
 source("Code/makeFigures/helperFunctionsFinal.R")
 getRankOfSecond=function(res,resName,motifFamilyTable){

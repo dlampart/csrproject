@@ -9,7 +9,7 @@
 ###################################
 ## this script calls the 
 ## the processing script used in
-## the paper 'papername'. 
+## the paper 'Genome-wide association between transcription factor expression and chromatin accessibility reveals chromatin state regulators'.
 ##
 ## this pipeline uses precomputed data 
 ## matrices in folder PreprocessedData/ .
@@ -28,10 +28,6 @@ bash Code/preparePathStructures.sh
 ## PreprocessedData/* /interimData/*
 ##################################
 bash Code/copyPreprocessedFiles.sh
-
- 
-
-
 
 #######################################################
 ## Code/prepareNormalizedMatricesDirectFinal.R
@@ -116,6 +112,8 @@ Rscript Code/makeFigures/prepareRankingTablesPerSubFamilyFinal.R
 #######################################################
 Rscript Code/makeFigures/addVarianceEffectToSubFamilyTable.R
 
+
+
 #######################################################
 ## Code/makeFigures/makeFigureCheckInflationControlFinal.R
 ##
@@ -131,6 +129,7 @@ Rscript Code/makeFigures/makeFigureCheckInflationControlFinal.R
 ## Code/makeFigures/showPowerIncreasePerSubfamilyFinal.R
 ##
 ## input: interimData/alldfMinusSubFam.RDat
+## input: interimData/allRes1.RDat
 ## input: interimData/alldf0SubFam.RDat
 ## input: interimData/alldf1SubFam.RDat
 ## output: PaperDocs/Images/showPowerCumulativePerSubfamily.svg (Fig 4)
@@ -145,6 +144,12 @@ Rscript Code/makeFigures/showPowerIncreasePerSubfamilyFinal.R
 ## output: PaperDocs/Images/pioneerEnrichment.svg (Fig 5)
 #######################################################
 Rscript Code/makeFigures/preparePioneerPlotFinal.R
+
+#######################################################
+## input: interimData/alldf1SubFamWithVariance.RDat
+## output: PaperDocs/Images/pioneerEnrichment.svg (supFig 5)
+#######################################################
+Rscript Code/makeFigures/addVarianceEffectToSubFamilyTable.R
 
 #######################################################
 ## Code/makeFigures/makeFigurePlotQQ_GRlikeFinal.R
@@ -180,12 +185,9 @@ Rscript Code/makeFigures/showCorrelationPlots.R
 #######################################################
 ## Code/makeFigures/makeVarianceEffectPlot.R
 ##
-## input: interimData/alldf1.RDat
-## input: interimData/completeMotifFamilyTable.RData
-## input: interimData/overallAveragedExpressionDirect.RDat
 ## input: interimData/alldf1SubFamWithVariance.RDat
-## output: PaperDocs/Images/showVarianceEffect.pdf
-## output: PaperDocs/Images/showVarianceEffectSubfamily.pdf
+## output: PaperDocs/Images/showVarianceEffectSubfamily.svg
+## output: aperDocs/supplementaryTable1.txt
 ## (supFig 3)
 ######################################################
 Rscript Code/makeFigures/makeVarianceEffectPlot.R

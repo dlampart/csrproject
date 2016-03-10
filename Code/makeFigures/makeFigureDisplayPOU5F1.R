@@ -1,7 +1,5 @@
 library(data.table)
 library(ggplot2)
-source("Code/naive_regression.R")
-source("Code/fast_lmm_group_reg.R")
 source("Code/fast_lmm.R")
 load("interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat")
 motifName="PO5F"

@@ -78,8 +78,9 @@ gg2[i]=sum(MM2[sample(c(1:length(MM2[,rank])),4),rank])
 gg3[i]=sum(MM[sample(c(1:length(MM[,rank])),4),rank<10])
 gg4[i]=sum(MM2[sample(c(1:length(MM2[,rank])),4),rank<10])
 }
-tt=sum(alldfSubFam[is.element(subFamily,pioneerSubFamilies),rank])
-tt2=sum(alldfSubFam[is.element(subFamily,pioneerSubFamilies),rank<10])
+
+tt=sum(alldfSubFam[isPioneer==TRUE,rank])
+tt2=sum(alldfSubFam[isPioneer==TRUE,rank<10])
 print("sum rank")
 print(mean(tt>=gg+gg2))
 print("enrichment")
@@ -96,8 +97,8 @@ for(i in c(1:50000)){
 gg[i]=sum(MM3[sample(c(1:length(MM3[,rank])),8),rank])
 gg2[i]=sum(MM3[sample(c(1:length(MM3[,rank])),8),rank<10])
 }
-tt=sum(alldfSubFam[is.element(subFamily,pioneerSubFamilies),rank])
-tt2=sum(alldfSubFam[is.element(subFamily,pioneerSubFamilies),rank<10])
+tt=sum(alldfSubFam[isPioneer==TRUE,rank])
+tt2=sum(alldfSubFam[isPioneer==TRUE,rank<10])
 print("sum rank")
 print(mean(tt>=gg))
 print("enrichment")

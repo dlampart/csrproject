@@ -3,6 +3,9 @@ library(svglite)
 library(ggplot2)
 library(data.table)
 source("Code/makeFigures/helperFunctionsFinal.R")
+load("interimData/completeMotifFamilyTable.RData")
+load("interimData/allRes1.RDat")
+allRes=allRes1
 load("interimData/alldfMinusSubFam.RDat")
 alldfMinus=alldfMinusSubFam
 load("interimData/alldf1SubFam.RDat")
