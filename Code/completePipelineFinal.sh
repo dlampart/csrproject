@@ -488,7 +488,7 @@ Rscript Code/chipSeq/prepareEnrichmentMatricesFinal.R
 ## input: interimData/motifInstances/HOCOMOCOHIGHCONF/CEBPD_f1_HighConf.bed (for example)
 ## output: interimData/chipSeqEnrichment.RDat
 #######################################################
-Rscript Code/chipSeq/prepareEnrichmentMatricesFinal.R
+Rscript Code/chipSeq/prepareEnrichmentMatricesSubfamilyFinal.R
 
 ####################################################a###
 ## Code/chipSeq/prepareEnrichmentMatricesSubfamilyFinal.R
