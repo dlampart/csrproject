@@ -222,7 +222,6 @@ Rscript Code/prepareNormalizedMatricesDirectFinal.R
 #######################################################
 bash Code/motifProcessing/prepareMotifClusters.sh
 
-
 #######################################################
 ## Code/mapResultsToTFClusters.R
 ##
@@ -275,21 +274,6 @@ Rscript Code/makeFigures/runAllMethodsOnlyForTFsFinal.R
 Rscript Code/makeFigures/prepareRankingTablesFinal.R
 
 #######################################################
-## Code/makeFigures/runOnlyTFsTopRemovedFinal.R
-##
-## uses: Code/makeFigures/helperFunctionsFinal.R
-## uses: Code/fast_lmm_group.R
-## input: interimData/completeMotifFamilyTable.RData
-## input: interimData/alldf1.RDat
-## output: interimData/allRes1TopRemoved.RDat
-## output: interimData/allRes1TopRemovedShuffled.RDat
-##
-## explanations: runs fast_lmm regressing highest scoring TF
-## of same subFamily (allRes1TopRemovedShuffled negative control: regresses out  random TF)
-#######################################################
-Rscript Code/makeFigures/runOnlyTFsTopRemovedFinal.R
-
-#######################################################
 ## Code/makeFigures/runAllScoresFinal.R
 ##
 ## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat
@@ -297,33 +281,6 @@ Rscript Code/makeFigures/runOnlyTFsTopRemovedFinal.R
 ## explanation: runs fast_lmm across all motifs and expression values
 #######################################################
 Rscript Code/makeFigures/runAllScoresFinal.R
-
-#######################################################
-## Code/makeFigures/prepareRankingTablesTopRemovedFinal.R
-##
-## interimData/completeMotifFamilyTable.RData
-## input: interimData/allRes1TopRemoved.RDat
-## input: interimData/allRes1TopRemovedShuffled.RDat
-## input: interimData/alldf1.RDat
-## output: interimData/alldf1TopRemoved.RDat
-## output: interimData/alldf1TopRemovedShuffled.RDat
-#######################################################
-Rscript Code/makeFigures/prepareRankingTablesTopRemovedFinal.R
-
-#######################################################
-## Code/makeFigures/runOnlyTFsTopRemovedFinal.R
-##
-## input: interimData/completeMotifFamilyTable.RData
-## input: interimData/alldf1.RDat
-## input: Code/makeFigures/helperFunctions.R
-## input: Code/fast_lmm_group.R
-## output: interimData/allRes1TopRemoved.RDat
-## output: interimData/allRes1TopRemovedShuffled.RDat
-##
-## explanations: runs fast_lmm regressing highest scoring TF
-## of same subFamily (allRes1TopRemovedShuffled negative control: regresses out  random TF)
-#######################################################
-Rscript Code/makeFigures/runOnlyTFsTopRemovedFinal.R
 
 #######################################################
 ## Code/makeFigures/prepareRankingTablesPerSubFamilyFinal.R
@@ -365,23 +322,13 @@ Rscript Code/makeFigures/addVarianceEffectToSubFamilyTable.R
 Rscript Code/makeFigures/makeFigureCheckInflationControlFinal.R
 
 #######################################################
-## Code/makeFigures/showPowerIncreaseFinal.R
-##
-## input: interimData/completeMotifFamilyTable.RData
-## input: interimData/alldfMinus.RDat
-## input: interimData/alldf0.RDat
-## input: interimData/alldf1.RDat
-## output: PaperDocs/Images/showPowerCumulative.svg  (Fig 4)
-#######################################################
-Rscript Code/makeFigures/showPowerIncreaseFinal.R
-
-#######################################################
 ## Code/makeFigures/showPowerIncreasePerSubfamilyFinal.R
 ##
 ## input: interimData/alldfMinusSubFam.RDat
+## input: interimData/allRes1.RDat
 ## input: interimData/alldf0SubFam.RDat
 ## input: interimData/alldf1SubFam.RDat
-## output: PaperDocs/Images/showPowerCumulativePerSubfamily.svg (supFig 2)
+## output: PaperDocs/Images/showPowerCumulativePerSubfamily.svg (Fig 4)
 #######################################################
 Rscript Code/makeFigures/showPowerIncreasePerSubfamilyFinal.R
 
@@ -393,6 +340,12 @@ Rscript Code/makeFigures/showPowerIncreasePerSubfamilyFinal.R
 ## output: PaperDocs/Images/pioneerEnrichment.svg (Fig 5)
 #######################################################
 Rscript Code/makeFigures/preparePioneerPlotFinal.R
+
+#######################################################
+## input: interimData/alldf1SubFamWithVariance.RDat
+## output: PaperDocs/Images/pioneerEnrichment.svg (supFig 5)
+#######################################################
+Rscript Code/makeFigures/addVarianceEffectToSubFamilyTable.R
 
 #######################################################
 ## Code/makeFigures/makeFigurePlotQQ_GRlikeFinal.R
@@ -408,7 +361,7 @@ Rscript Code/makeFigures/makeFigurePlotQQ_GRlikeFinal.R
 ##
 ## uses: Code/fast_lmm.R
 ## input:interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat
-## output:PaperDocs/Images/figure_PO5F.svg (SupFig 3)
+## output:PaperDocs/Images/figure_PO5F.svg (SupFig 2)
 ######################################################
 Rscript Code/makeFigures/makeFigureDisplayPOU5F1.R
 
@@ -421,42 +374,26 @@ Rscript Code/makeFigures/makeFigureDisplayPOU5F1.R
 ## output:PaperDocs/Images/cor2Motif1.svg
 ## output:PaperDocs/Images/cor2Expr.svg
 ## output: PaperDocs/Images/eigenValues.svg
-## (supFig 5)
+## (supFig 4)
 ######################################################
 Rscript Code/makeFigures/showCorrelationPlots.R
 
 #######################################################
 ## Code/makeFigures/makeVarianceEffectPlot.R
 ##
-## input: interimData/alldf1.RDat
-## input: interimData/completeMotifFamilyTable.RData
-## input: interimData/overallAveragedExpressionDirect.RDat
 ## input: interimData/alldf1SubFamWithVariance.RDat
-## output: PaperDocs/Images/showVarianceEffect.pdf
-## output: PaperDocs/Images/showVarianceEffectSubfamily.pdf
-## (supFig 4)
+## output: PaperDocs/Images/showVarianceEffectSubfamily.svg
+## output: aperDocs/supplementaryTable1.txt
+## (supFig 3)
 ######################################################
 Rscript Code/makeFigures/makeVarianceEffectPlot.R
-
-
-#######################################################
-## Code/makeFigures/showPowerSecondFinal.R 
-##
-## uses: Code/makeFigures/helperFunctionsFinal.R
-## input: interimData/alldf1.RDat
-## input: interimData/completeMotifFamilyTable.RData
-## input: interimData/alldf1TopRemoved.RDat
-## output: PaperDocs/Images/showPowerCumulative.svg
-## (supFig 6)
-######################################################
-Rscript Code/makeFigures/showPowerSecondFinal.R
 
 #######################################################
 #######################################################
 ### ChIP-Seq analysis
 ## explanation: prepare plot of Fig3
 #######################################################
-####################################################a###
+#######################################################
 ## Code/chipSeq/downloadData.sh
 ##
 ## output: Data/chipSeq/Haib/wgEncodeHaib(.+).broadPeak
