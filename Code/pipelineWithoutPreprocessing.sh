@@ -21,7 +21,6 @@
 ###################################
 bash Code/preparePathStructures.sh
 
-
 ##################################
 ## Code/copyPreprocessedFiles.sh
 ##
