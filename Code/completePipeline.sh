@@ -451,3 +451,20 @@ Rscript Code/chipSeq/makeBoxPlotsFinal.R
 #######################################################
 ### END: ChIP-Seq analysis
 #######################################################
+#######################################################
+### PIQ-results comparison
+#######################################################
+#######################################################
+## Code/compareToPIQ/prepareCombineCSRandPIQplot.R
+##
+## uses Code/makeFigures/helperFunctionsFinal.R
+## input: Data/piqResultsTable.txt
+## input: interimData/completeMotifFamilyTable.RData
+## input: interimData/alldf1SubFam.RDat
+## output: PaperDocs/Images/combineCSRandPIQ.pdf
+#######################################################
+Rscript Code/compareToPIQ/prepareCombineCSRandPIQplot.R
+#######################################################
+#######################################################
+### END: PIQ-results comparsion
+#######################################################

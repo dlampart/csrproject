@@ -1,5 +1,10 @@
 library(data.table)
 
+getZaretPioneerSubFamilies=function(){
+    out=c("3.3.1.1","3.1.10.5","4.1.1.2","2.3.1.2","2.2.1.1","1.2.2.2","3.2.1.1","3.5.2.5","6.3.1.0","1.2.5.2")
+    return(out)
+}
+
 getMaximalPossibleRankForSecond=function(){
     load("interimData/allRes1.RDat")
     load("interimData/completeMotifFamilyTable.RData")
