@@ -100,7 +100,7 @@ scalerRound=function(mat,n,scaleFlag=TRUE){
 
 
 averageColQQnormalization=function(mat){
-    mat2=apply(res,2,sort)
+    mat2=apply(mat,2,sort)
     aver=rowMeans(mat2)
     mat3=apply(mat,2,rank, ties.method="first")
     mat4=mat3

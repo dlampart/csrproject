@@ -131,6 +131,15 @@ Rscript Code/ExpressionProcessing/mapGeneNamesOntoExpressionsDirect.R
 Rscript Code/ExpressionProcessing/averageExpressionDirect.R
 
 #######################################################
+## Code/reformatExpressionRoadmap.R
+##
+## Data/mart_export.txt
+## input: Data/57epigenomes.N.p
+## output: interimData/unnormedExpressionsRoadmap.RDat
+#######################################################
+Rscript Code/reformatExpressionRoadmap.R
+
+#######################################################
 ## 3.) Motif download and processing
 #######################################################
 #######################################################
@@ -196,11 +205,16 @@ Rscript Code/motifProcessing/make_motifDHS_matrixDirect.R
 #######################################################
 ## Code/prepareNormalizedMatricesDirectFinal.R
 ##
+## uses: Code/prepareNormalizedMatricesDirect_fun.R
 ## uses Code/normalizationFunctions.R
 ## input: interimData/unnormedMotifActivityDirect.RDat
 ## input: interimData/overallAveragedExpressionDirect.RDat
+## input: interimData/unnormedMotifActivityRoadmapDirect.RDat
+## input: interimData/unnormedExpressionsRoadmap.RDat
+##
 ## output: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat
 ## output: interimData/bothMatDirectsDeterministicPCMotif0PCsRemoved.RDat
+## output: interimData/bothMatDirectsDeterministicPCMotif1PCsRemovedRoadmap.RDat
 ##
 ## explanations: normalizes both matrices and removes principal compnent with
 ## largest eigenvector from the motif matrix.
@@ -246,12 +260,16 @@ Rscript Code/mapResultsToTFClusters.R
 ##
 ## uses: Code/makeFigures/helperFunctionsFinal.R
 ## uses: Code/fast_lmm.R
+## uses: Code/makeFigures/runAllMethodsOnlyForTFs_fun.R
 ## input: interimData/completeMotifFamilyTable.RData
 ## input: interimData/bothMatDirectsDeterministicPCMotif0PCsRemoved.RDat
 ## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat
+## input: interimData/bothMatDirectsMotif1PCsRemovedExpr0Roadmap.RDat
+##
 ## output: interimData/allResMinus.RDat
 ## output: interimData/allRes0.RDat
 ## output: interimData/allRes1.RDat
+## output: interimData/allRes1Roadmap.RDat
 ##
 ## explanations: runs fast_lmm only for Transcription factors
 #######################################################
@@ -261,13 +279,24 @@ Rscript Code/makeFigures/runAllMethodsOnlyForTFsFinal.R
 ## Code/makeFigures/prepareRankingTablesFinal.R
 ##
 ## uses: Code/makeFigures/helperFunctionsFinal.R
-## interimData/completeMotifFamilyTable.RData
+## uses: Code/makeFigures/prepareRankingTables_fun.R
+## input: interimData/completeMotifFamilyTable.RData
+## input: interimData/bothMatDirectsDeterministicPCMotif0PCsRemoved.RDat
+## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat
+## input: interimData/bothMatDirectsMotif1PCsRemovedExpr0Roadmap.RDat
 ## input: interimData/allResMinus.RDat
 ## input: interimData/allRes0.RDat
 ## input: interimData/allRes1.RDat
+## input: interimData/allRes1Roadmap.RDat
+##
 ## output: interimData/alldfMinus.RDat
 ## output: interimData/alldf0.RDat
 ## output: interimData/alldf1.RDat
+## output: interimData/alldf1TopRemoved.RDat
+## output: interimData/alldf1TopRemovedShuffled.RDat
+## output: interimData/allResTopIgnored.RDat
+## output: interimData/alldf1TopIgnored.RDat 
+## output: interimData/alldfRoadmap.RDat 
 ##
 ## explanation: prepares tables motif rank score
 #######################################################
@@ -286,16 +315,29 @@ Rscript Code/makeFigures/runAllScoresFinal.R
 ## Code/makeFigures/prepareRankingTablesPerSubFamilyFinal.R
 ##
 ## use: Code/makeFigures/helperFunctionsFinal.R
+## use: Code/makeFigures/prepareRankingTablesPerSubFamily_fun.R
 ## input: interimData/completeMotifFamilyTable.RData
 ## input: interimData/allRes1.RDat
 ## input: interimData/allRes0.RDat
 ## input: interimData/allResMinus.RDat
+## input: interimData/allRes1TopRemoved.RDat
+## input: interimData/allResTopIgnored.RDat
+## input: interimData/allRes1Roadmap.RDat
 ## input: interimData/alldf1.RDat
 ## input: interimData/alldf0.RDat
 ## input: interimData/alldfMinus.RDat
+## input: interimData/alldf1TopRemoved.RDat
+## input: interimData/alldf1TopRemovedShuffled.RDat
+## input: interimData/alldf1TopIgnored.RDat
+## input: interimData/alldfRoadmap.RDat
+##
 ## output: interimData/alldf0SubFam.RDat
 ## output: interimData/alldf1SubFam.RDat
 ## output: interimData/alldfMinusSubFam.RDat
+## output: interimData/alldfTopRemovedSubFam.RDat
+## output: interimData/alldfTopRemovedSubFamShuffled.RDat
+## output: interimData/alldf1SecSubFam.RDat
+## output: interimData/alldfSubFamRoadmap.RDat
 #######################################################
 Rscript Code/makeFigures/prepareRankingTablesPerSubFamilyFinal.R
 

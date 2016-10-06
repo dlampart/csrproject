@@ -3,25 +3,25 @@ library(multicore)
 library(ggplot2)
 library(data.table)
 
-
+load("interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat")
 load("interimData/alldf1.RDat")
-
-
 #################################
 ## add TopGene as covariate
 #################################
-
 runRegressionWithCovariate=function(bothMats,noCorrection=FALSE,priorDF){
     my_K=cov(bothMats[[2]])
     source("Code/makeFigures/helperFunctionsFinal.R")
     bothMats[[2]]=bothMats[[2]][is.element(rownames(bothMats[[2]]),motifFamilyTable[,geneSymbol]),]
     indexSetList=makeSetListWingender(motifFamilyTable,bothMats,quote(subFamily))
+    sets=sort(unique(unlist(indexSetList)))
 #################################
     ##getting covariate
 #################################
     geneNames=rownames(bothMats[[2]])
     bothMats[[1]]=bothMats[[1]][priorDF[,index],]
     topGenePosition=match(priorDF[,topGene],geneNames)
+    motifMat=bothMats[[1]]
+    datList=list()
     for(i in c(1:length(motifMat[,1]))){
         covariate=t(t(bothMats[[2]][is.element(rownames(bothMats[[2]]),priorDF[i,topGene])]))
         datList[[i]]=list(motifMat[i,],covariate,topGenePosition[i])
@@ -38,6 +38,7 @@ runRegressionWithCovariate=function(bothMats,noCorrection=FALSE,priorDF){
         return(res)
     }
     source("Code/fast_lmm_group.R")
+    browser()
     allResWithCovariate0=mclapply(datList,fun,mc.cores=25)
     allResWithCovariate=list()
     for(i in c(1:length(allResWithCovariate0))){
@@ -48,7 +49,6 @@ runRegressionWithCovariate=function(bothMats,noCorrection=FALSE,priorDF){
     }    
     return(allResWithCovariate)
 }
-
 
 allRes1TopRemoved=runRegressionWithCovariate(bothMats=bothMats,noCorrection=FALSE,priorDF=alldf1[geneNr=="first",])
 save(allRes1TopRemoved,file="interimData/allRes1TopRemoved.RDat")

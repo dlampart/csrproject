@@ -63,7 +63,6 @@ makeDFTopRemoved=function(allRes,motifFamilyTable){
     return(alldf)
 }
 
-
 load("interimData/allRes1TopRemoved.RDat")
 load("interimData/alldf1.RDat")
 names(allRes1TopRemoved)=alldf1[geneNr=="first",motifName]
@@ -74,5 +73,3 @@ load("interimData/alldf1.RDat")
 names(allRes1TopRemovedShuffled)=alldf1[geneNr=="first",motifName]
 alldf1TopRemovedShuffled=makeDFTopRemoved(allRes1TopRemovedShuffled,motifFamilyTable)
 save(alldf1TopRemovedShuffled,file="interimData/alldf1TopRemovedShuffled.RDat")
-
-

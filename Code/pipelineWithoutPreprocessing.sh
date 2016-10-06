@@ -31,6 +31,7 @@ bash Code/copyPreprocessedFiles.sh
 #######################################################
 ## Code/prepareNormalizedMatricesDirectFinal.R
 ##
+## uses: Code/prepareNormalizedMatricesDirect_fun.R
 ## uses Code/normalizationFunctions.R
 ## input: interimData/unnormedMotifActivityDirect.RDat
 ## input: interimData/overallAveragedExpressionDirect.RDat
@@ -47,6 +48,7 @@ Rscript Code/prepareNormalizedMatricesDirectFinal.R
 ##
 ## uses: Code/makeFigures/helperFunctionsFinal.R
 ## uses: Code/fast_lmm.R
+## uses: Code/makeFigures/runAllMethodsOnlyForTFs_fun.R
 ## input: interimData/completeMotifFamilyTable.RData
 ## input: interimData/bothMatDirectsDeterministicPCMotif0PCsRemoved.RDat
 ## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat
@@ -62,6 +64,7 @@ Rscript Code/makeFigures/runAllMethodsOnlyForTFsFinal.R
 ## Code/makeFigures/prepareRankingTablesFinal.R
 ##
 ## uses: Code/makeFigures/helperFunctionsFinal.R
+## uses: Code/makeFigures/prepareRankingTables_fun.R
 ## interimData/completeMotifFamilyTable.RData
 ## input: interimData/allResMinus.RDat
 ## input: interimData/allRes0.RDat
@@ -87,6 +90,7 @@ Rscript Code/makeFigures/runAllScoresFinal.R
 ## Code/makeFigures/prepareRankingTablesPerSubFamilyFinal.R
 ##
 ## use: Code/makeFigures/helperFunctionsFinal.R
+## use: Code/makeFigures/prepareRankingTablesPerSubFamily_fun.R
 ## input: interimData/completeMotifFamilyTable.RData
 ## input: interimData/allRes1.RDat
 ## input: interimData/allRes0.RDat
