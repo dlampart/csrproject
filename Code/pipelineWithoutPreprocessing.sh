@@ -78,15 +78,6 @@ Rscript Code/makeFigures/runAllMethodsOnlyForTFsFinal.R
 Rscript Code/makeFigures/prepareRankingTablesFinal.R
 
 #######################################################
-## Code/makeFigures/runAllScoresFinal.R
-##
-## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat
-## output: interimData/completeRun.RDat
-## explanation: runs fast_lmm across all motifs and expression values
-#######################################################
-Rscript Code/makeFigures/runAllScoresFinal.R
-
-#######################################################
 ## Code/makeFigures/prepareRankingTablesPerSubFamilyFinal.R
 ##
 ## use: Code/makeFigures/helperFunctionsFinal.R
@@ -105,6 +96,15 @@ Rscript Code/makeFigures/runAllScoresFinal.R
 Rscript Code/makeFigures/prepareRankingTablesPerSubFamilyFinal.R
 
 #######################################################
+## Code/makeFigures/runAllScoresFinal.R
+##
+## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat
+## output: interimData/completeRun.RDat
+## explanation: runs fast_lmm across all motifs and expression values
+#######################################################
+Rscript Code/makeFigures/runAllScoresFinal.R
+
+#######################################################
 ## Code/makeFigures/addVarianceEffectToSubFamilyTable.R
 ##
 ## use: Code/makeFigures/helperFunctionsFinal.R
@@ -114,8 +114,6 @@ Rscript Code/makeFigures/prepareRankingTablesPerSubFamilyFinal.R
 ## output: interimData/alldf1SubFamWithVariance.RDat
 #######################################################
 Rscript Code/makeFigures/addVarianceEffectToSubFamilyTable.R
-
-
 
 #######################################################
 ## Code/makeFigures/makeFigureCheckInflationControlFinal.R

@@ -1,5 +1,5 @@
 library(multicore)
-load("interimData/fileNameTables.RDat")
+##load("interimData/fileNameTables.RDat")
 system("mkdir interimData/roadmapDHS_sorted/")
 dhsPath="Data/roadmapDHS_filtered/"
 dhsNewPath="interimData/roadmapDHS_sorted/"

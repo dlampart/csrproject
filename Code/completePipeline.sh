@@ -510,3 +510,91 @@ Rscript Code/compareToPIQ/prepareCombineCSRandPIQplot.R
 #######################################################
 ### END: PIQ-results comparsion
 #######################################################
+#######################################################
+### BEGIN: Roadmap pipeline
+#######################################################
+#######################################################
+## Code/DataFetch/getRoadmapData.sh
+##
+## output: http://egg2.wustl.edu/roadmap/data/byDataType/rna/expression/57epigenomes.N.pc
+## output: Data/roadmapDHS_filtered/${el}-DNase.imputed.narrowPeak.bed
+#######################################################
+bash Code/DataFetch/getRoadmapData.sh
+
+#######################################################
+## Code/overlap_filter_imputedDHS.sh
+##
+## input: Data/roadmapDHS/${el}-DNase.imputed.narrowPeak.bed
+## output: Data/roadmapDHS_filtered/${el}-DNase.imputed.narrowPeak.bed
+##
+## explanation: keep imputed DHS regions overlapping 
+## directly measured DHS regions
+#######################################################
+bash Code/overlap_filter_imputedDHS.sh
+
+#######################################################
+## Code/motifProcessing/make_motifDHSroadmap_matrixDirect.R
+##
+## input: interimData/motifInstances/HOCOMOCOHIGHCONF/CEBPD_f1_HighConf.bed (for example)
+## input: Data/roadmapDHS_filtered/(\w+)-DNase.imputed.narrowPeak.bed
+## output: interimData/unnormedMotifActivityRoadmapDirect.RDat
+#######################################################
+Rscript Code/motifProcessing/make_motifDHSroadmap_matrixDirect.R
+
+#######################################################
+##  Code/reformatExpressionRoadmap.R
+##
+## input: Data/57epigenomes.N.pc
+## output: interimData/unnormedExpressionsRoadmap.RDat
+#######################################################
+Rscript Code/reformatExpressionRoadmap.R
+
+#######################################################
+## Code/prepareNormalizedMatricesDirectFinal.R
+##
+## uses: Code/prepareNormalizedMatricesDirect_fun.R
+## input: interimData/unnormedMotifActivityRoadmapDirect.RDat
+## input: interimData/unnormedExpressionsRoadmap.RDat
+##
+## output: interimData/bothMatDirectsDeterministicPCMotif1PCsRemovedRoadmap.RDat
+#######################################################
+Rscript Code/prepareNormalizedMatricesDirectFinalRoadmap.R
+
+#######################################################
+## Code/makeFigures/runAllMethodsOnlyForTFsFinalRoadmap.R
+##
+## uses: Code/makeFigures/runAllMethodsOnlyForTFs_fun.R
+## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemovedRoadmap.RDat
+## output: interimData/allRes1Roadmap.RDat
+#######################################################
+Rscript Code/makeFigures/runAllMethodsOnlyForTFsFinalRoadmap.R
+
+#######################################################
+## Code/makeFigures/prepareRankingTablesFinalRoadmap.R
+##
+## uses: Code/makeFigures/prepareRankingTables_fun.R
+## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemovedRoadmap.RDat
+## output: interimData/allRes1Roadmap.RDat
+#######################################################
+Rscript Code/makeFigures/prepareRankingTablesFinalRoadmap.R
+
+#######################################################
+##  Code/makeFigures/prepareRankingTablesPerSubFamilyFinalRoadmap.R
+##
+## uses: Code/makeFigures/prepareRankingTablesPerSubfamliy_fun.R
+## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemovedRoadmap.RDat
+## output: interimData/allRes1Roadmap.RDat
+#######################################################
+Rscript Code/makeFigures/prepareRankingTablesPerSubFamilyFinalRoadmap.R
+
+#######################################################
+## Code/makeFigures/prepareRoadmapReplicationPlot.R
+##
+## uses: Code/makeFigures/helperFunctionsFinal.R
+## input: interimData/completeMotifFamilyTable.RData
+## input: interimData/alldfSubFamRoadmap.RDat
+## input: interimData/alldf1SubFam.RDat
+## output: PaperDocs/Images/encodeEnrichmentInRoadmapStrata.png
+## output: PaperDocs/Images/roadmapEnrichmentInEncodeStrata.png
+#######################################################
+Rscript  Code/makeFigures/prepareRoadmapReplicationPlot.R
