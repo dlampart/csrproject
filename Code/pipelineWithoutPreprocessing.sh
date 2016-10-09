@@ -129,6 +129,7 @@ Rscript Code/makeFigures/makeFigureCheckInflationControlFinal.R
 #######################################################
 ## Code/makeFigures/showPowerIncreasePerSubfamilyFinal.R
 ##
+## uses Code/makeFigures/showPowerIncreasePerSubfamily_fun.R
 ## input: interimData/alldfMinusSubFam.RDat
 ## input: interimData/allRes1.RDat
 ## input: interimData/alldf0SubFam.RDat
@@ -139,6 +140,7 @@ Rscript Code/makeFigures/showPowerIncreasePerSubfamilyFinal.R
 
 #######################################################
 ## Code/makeFigures/preparePioneerPlotFinal.R
+##
 ## uses Code/makeFigures/helperFunctionsFinal.R
 ## interimData/completeMotifFamilyTable.RDatai
 ## interimData/alldf1SubFamWithVariance.RDat

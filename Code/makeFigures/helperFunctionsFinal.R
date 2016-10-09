@@ -1,5 +1,7 @@
 library(data.table)
 
+my_theme_classic=theme_classic() + theme(axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'),axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'))
+
 getZaretPioneerSubFamilies=function(){
     out=c("3.3.1.1","3.1.10.5","4.1.1.2","2.3.1.2","2.2.1.1","1.2.2.2","3.2.1.1","3.5.2.5","6.3.1.0","1.2.5.2")
     return(out)

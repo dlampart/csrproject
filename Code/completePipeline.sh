@@ -366,6 +366,7 @@ Rscript Code/makeFigures/makeFigureCheckInflationControlFinal.R
 #######################################################
 ## Code/makeFigures/showPowerIncreasePerSubfamilyFinal.R
 ##
+## uses Code/makeFigures/showPowerIncreasePerSubfamily_fun.R
 ## input: interimData/alldfMinusSubFam.RDat
 ## input: interimData/allRes1.RDat
 ## input: interimData/alldf0SubFam.RDat
