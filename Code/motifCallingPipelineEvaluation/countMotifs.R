@@ -15,3 +15,5 @@ tot=merge(tot,dd6)
 
 fewer=tot[,V1.y/V1]
 more=tot[,V1.x/V1.y]
+median(fewer)
+median(more)

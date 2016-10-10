@@ -14,7 +14,7 @@ setkey(dhsNames,cellUpper)
 setkey(filesToUse,cellUpper)
 wer2=merge(dhsNames,filesToUse)
 wer2[,antibodyTrunc:=toupper(sub("-","",sub("_.+$","",antibody)))]
-load("interimData/bothMatDirectsProbPCMotif1PCsRemovedExpr0PCsNotRemoved.RDat")
+load("interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved.RDat")
 tfNames=sub("_..$","",rownames(bothMats[[1]]))
 tfGeneSymbols=motifFamilyTable[match(tfNames,`UniProtKB-ID`),geneSymbol]
 motifTabl=data.table(motifNames=rownames(bothMats[[1]]),antibodyTrunc=tfGeneSymbols,motifIndex=c(1:length(tfNames)))
@@ -45,7 +45,7 @@ wer2=wer[c(7:(length(wer[,V2])-1)),list(V1,V2,V3)]
     setkey(filesToUse,cellUpper)
     wer2=merge(dhsNames,filesToUse)
     wer2[,antibodyTrunc:=toupper(sub("-","",sub("_.+$","",antibody)))]
-    load("interimData/bothMatDirectsProbPCMotif1PCsRemovedExpr0PCsNotRemoved.RDat")
+    load("interimData/bothMatDirectsDeterministicPCMotif0PCsRemoved.RDat")
     tfNames=sub("_..$","",rownames(bothMats[[1]]))
     tfGeneSymbols=motifFamilyTable[match(tfNames,`UniProtKB-ID`),geneSymbol]
     motifTabl=data.table(motifNames=rownames(bothMats[[1]]),antibodyTrunc=tfGeneSymbols,motifIndex=c(1:length(tfNames)))
@@ -72,7 +72,3 @@ haibNames=fun(metaDataFile,peakNames)
 #####################
 #####################
 #####################    
-
-
-
-
