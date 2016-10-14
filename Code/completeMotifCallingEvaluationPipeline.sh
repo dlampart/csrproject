@@ -152,10 +152,16 @@ Rscript Code/motifCallingPipelineEvaluation/calculateMotifCutoffFinal.R
 #######################################################
 ##  Code/motifCallingPipelineEvaluation/make_motifDHS_matrixDirect_ChipSeq.R
 ##
+##
+## input: interimData/chipSeqValsFinal.txt
+## input: interimData/fileNameTables.RDat
 ## input: interimData/motifInstances/HOCOMOCOVARIABLECONF/HOCOMOCO1EM45/CEBPD_f1.sorted.bed (for example)
 ## input: interimData/DHSnormalized/Normalized.wgEncode(Uw|Duke)Dnase(\w+).fdr01peaks.hg19.bb.bed
 ## input: interimData/fileNameTables.RDat
-## output: interimData/unnormedMotifActivity_motifCutoff(4.5|5|6).RDat
+## output
+## output: interimData/unnormedMotifActivityDirectChipSeq_0.3.RDat
+## output: interimData/unnormedMotifActivityDirectChipSeq_0.5.RDat
+## output: interimData/unnormedMotifActivityDirectChipSeq_0.7.RDat
 #######################################################
 Rscript Code/motifCallingPipelineEvaluation/make_motifDHS_matrixDirect_ChipSeq.R
 
@@ -163,11 +169,11 @@ Rscript Code/motifCallingPipelineEvaluation/make_motifDHS_matrixDirect_ChipSeq.R
 ## Code/motifCallingPipelineEvaluation/prepareNormalizedMatrices_motifCutoff_chipSeq.R
 ##
 ## uses: Code/normalizationFunctions.R
-## input: interimData/unnormedMotifActivityDirectChipSeq_0.35.RDat
+## input: interimData/unnormedMotifActivityDirectChipSeq_0.3.RDat
 ## input: interimData/unnormedMotifActivityDirectChipSeq_0.5.RDat
 ## input: interimData/unnormedMotifActivityDirectChipSeq_0.7.RDat
 ## input: interimData/overallAveragedExpressionDirect.RDat
-## output: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.35_chipseq.RDat
+## output: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.3_chipseq.RDat
 ## output: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.5_chipseq.RDat
 ## output: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.7_chipseq.RDat
 #######################################################
@@ -181,11 +187,11 @@ Rscript Code/motifCallingPipelineEvaluation/prepareNormalizedMatrices_motifCutof
 ## uses: Code/makeFigures/runAllMethodsOnlyForTFs_fun.R
 ## input:interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.7_chipseq.RDat
 ## input:interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.5_chipseq.RDat
-## input:interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.35_chipseq.RDat
+## input:interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.3_chipseq.RDat
 ##
 ## output: interimData/allRes0.7_chipseq.RDat
 ## output: interimData/allRes0.5_chipseq.RDat
-## output: interimData/allRes0.35_chipseq.RDat
+## output: interimData/allRes0.3_chipseq.RDat
 #######################################################
 Rscript Code/motifCallingPipelineEvaluation/runAllMethodsOnlyForTFs_chipseq.R
 
@@ -195,16 +201,16 @@ Rscript Code/motifCallingPipelineEvaluation/runAllMethodsOnlyForTFs_chipseq.R
 ## uses: Code/makeFigures/helperFunctionsFinal.R
 ## uses: Code/makeFigures/prepareRankingTables_fun.R
 ## input: interimData/completeMotifFamilyTable.RData
-## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff55.RDat
-## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff5.RDat
-## input:  interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff6.RDat
-## input: interimData/allRes_55.RDat
-## input: interimData/allRes_5.RDat
-## input: interimData/allRes_6.RDat
+## input: interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.7_chipseq.RDat
+## input:  interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.5_chipseq.RDat
+## input:  interimData/bothMatDirectsDeterministicPCMotif1PCsRemoved_motifCutoff0.4_chipseq.RDat
+## input: interimData/allRes0.5_chipseq.RDat
+## input: interimData/allRes0.7_chipseq.RDat
+## input: interimData/allRes0.3_.RDat
 ##
 ## output: interimData/alldf1_0.7_chipseq.RDat
 ## output: interimData/alldf1_0.5_chipseq.RDat
-## output: interimData/alldf1_0.35_chipseq.RDat
+## output: interimData/alldf1_0.3_chipseq.RDat
 ##
 ## explanation: prepares tables motif rank score
 #######################################################
@@ -216,30 +222,50 @@ Rscript Code/motifCallingPipelineEvaluation/prepareRankingTables_chipseq.R
 ## use: Code/makeFigures/helperFunctionsFinal.R
 ## use: Code/makeFigures/prepareRankingTablesPerSubFamily_fun.R
 ## input: interimData/completeMotifFamilyTable.RData
-## input: interimData/allRes_55.RDat
-## input: interimData/allRes_5.RDat
-## input: interimData/allRes_6.RDat
-## input: interimData/alldf1_55.RDat
-## input: interimData/alldf1_5.RDat
-## input: interimData/alldf1_6.RDat
+## input: interimData/allRes0.7_chipseq.RDat
+## input: interimData/allRes0.5_chipseq.RDat
+## input: interimData/allRes0.3_chipseq.RDat
+## input: interimData/alldf1_7_chipseq.RDat
+## input: interimData/alldf1_5_chipseq.RDat
+## input: interimData/alldf1_3_chipseq.RDat
 ##
-## output: interimData/alldf1SubFam_55.RDat
-## output: interimData/alldf1SubFam_5.RDat
-## output: interimData/alldf1SubFam_6.RDat
+## output: interimData/alldf1SubFam_0.7_chipseq.RDat
+## output: interimData/alldf1SubFam_0.5_chipseq.RDat
+## output: interimData/alldf1SubFam_0.3_chipseq.RDat
 #######################################################
 Rscript Code/motifCallingPipelineEvaluation/prepareRankingTablesPerSubFamily_chipseq.R
 
 #######################################################
 ## Code/motifCallingPipelineEvaluation/showPowerIncreasePerSubfamily_chipseq.R
 ##
-## 
+## Code/makeFigures/helperFunctionsFinal.R
+## Code/makeFigures/showPowerIncreasePerSubfamily_fun.R
 ##
+## input: interimData/completeMotifFamilyTable.RData
+## input: interimData/alldf1SubFam.RDat
+## input: interimData/alldf1SubFam_0.7_chipseq.RDat
+## input: interimData/alldf1SubFam_0.5_chipseq.RDat
+## input: interimData/alldf1SubFam_0.3_chipseq.RDat
+##
+## output: PaperDocs/Images/showPowerCumulativePerSubfamily_chipseq.png
+## output: PaperDocs/Images/showPowerCumulativePerSubfamily_chipseq.svg
 #######################################################
 Rscript Code/motifCallingPipelineEvaluation/showPowerIncreasePerSubfamily_chipseq.R
 
-
+#######################################################
+## Code/motifCallingPipelineEvaluation/showOverlap_chipseqFinal.R
+##
+## uses Code/makeFigures/helperFunctionsFinal.R
+## uses Code/chipSeq/processNames.R
+##
+## input: interimData/fileNameTables.RDat
+## input: interimData/completeMotifFamilyTable.RData
+## input: interimData/alldf1SubFam.RDat
+## input: interimData/alldf1SubFam_0.7_chipseq.RDat
+## input: interimData/alldf1SubFam_0.5_chipseq.RDat
+## input: interimData/alldf1SubFam_0.3_chipseq.RDat
+##
+## output: PaperDocs/Images/chipseqOverlapPlot_All.png
+## output: PaperDocs/Images/chipseqOverlapPlot_All.svg
+#######################################################
 Rscript Code/motifCallingPipelineEvaluation/showOverlap_chipseqFinal.R
-
-
-
-

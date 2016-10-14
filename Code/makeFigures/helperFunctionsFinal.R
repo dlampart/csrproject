@@ -1,5 +1,5 @@
 library(data.table)
-
+library(ggplot2)
 my_theme_classic=theme_classic() + theme(axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'),axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'))
 
 getZaretPioneerSubFamilies=function(){
@@ -196,20 +196,11 @@ runFastLmmRegMaxAllResults=function(bothMats,indexList, covariates=NULL,myK=NULL
 
         getOnlyDeltasWrapper=function(motifActivity){
                        wer=getOnlyDelta(my_y=as.matrix(motifActivity), my_X=t(bothMats[[2]]), my_K=NULL,indexList=indexList,regFactor=Inf,useMax=T)
- #                       wer=fast_lmm_covariates(my_y=as.matrix(motifActivity), my_X=t(bothMats[[2]]), my_K=NULL,indexList=indexList,fullLikelihood=TRUE,covariateMat=covariates)
             return(wer)
         }
-
-                                        #browser()
-                                        #    resultListSum=mclapply(motifActivityList,run_fast_lmm_group_reg,mc.cores=15)
-
-#    resultListMax=lapply(motifActivityList,run_fast_lmm_group_regMax)
    resultListMax=mclapply(motifActivityList,run_fast_lmm_group_regMax,mc.cores=25)
 
     deltas=mclapply(motifActivityList,getOnlyDeltasWrapper,mc.cores=25)
-#        deltas=lapply(motifActivityList,getOnlyDeltasWrapper)
-#        browser()
-#        resultListMax=lapply(motifActivityList,run_fast_lmm_group_regMax)
     makeMat=function(resultList){
         resultsMat=matrix(NA,nrow=length(resultList),ncol=length(resultList[[1]]))
         tfNames=rownames(bothMats[[1]])
@@ -222,7 +213,6 @@ runFastLmmRegMaxAllResults=function(bothMats,indexList, covariates=NULL,myK=NULL
         return(resultsMat)
     }
     allResults=list()
- #   allResults[["resultMatSum"]]=makeMat(resultListSum)
     allResults[["resultMatMax"]]=makeMat(resultListMax)
     allResults[["deltas"]]=deltas
     return(allResults)
