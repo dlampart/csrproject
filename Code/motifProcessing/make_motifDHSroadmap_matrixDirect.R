@@ -1,7 +1,7 @@
 library(multicore)
 ##load("interimData/fileNameTables.RDat")
 system("mkdir interimData/roadmapDHS_sorted/")
-dhsPath="Data/roadmapDHS_filtered/"
+dhsPath="Data/roadmapDHS/"
 dhsNewPath="interimData/roadmapDHS_sorted/"
 dhsFiles=list.files(dhsPath)
 dhsFullPath=paste(dhsPath,dhsFiles,sep="")
@@ -15,6 +15,7 @@ dhsFiles=list.files(dhsPath)
 dhsFullPath=paste(dhsPath,dhsFiles,sep="")
 motifPath="interimData/motifInstances/HOCOMOCOHIGHCONF/"
 motifFiles=list.files(motifPath)
+motifFiles=motifFiles[grepl("_HighConf.bed",motifFiles)]
 motifFullPath=paste(motifPath,motifFiles,sep="")
 motifCellNames=sub(motifPath,"",sub("_HighConf.bed","",motifFullPath))
 

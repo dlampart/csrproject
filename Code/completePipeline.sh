@@ -7,10 +7,10 @@
 ## 'Genome-wide association between transcription factor expression and chromatin accessibility reveals chromatin state regulators'
 ## in order.
 ##
-## while it should allow to replicate 
+## While it should allow to replicate 
 ## results with relative ease it's not guaranteed to work out-of-the-box.
 ## 
-## notworthy failure points are installation
+## Notworthy failure points are installation
 ## of R packages, external software
 ## and download of external data.
 ##
@@ -21,16 +21,13 @@
 ## precomputed data matrix in folder PreprocessedData/ .
 ## Calling  Code/pipelineWithoutPreprocessing.R 
 ## will overwrite processed data in interimData/
-## with processed data in PreprocessedData/ .
+## with processed data in PreprocessedData/.
 ###################################
-
 ## Data not automatically downloaded:
 ## input: Data/mapping_71.txt (Downloaded from http://www.stemformatics.org/contents/download_mappings)
 ## input: Data/martEnsg2hgnc.txt (downloaded from biomart)
 ## input: Data/UniProtGeneSymbolTable.tbl
-##  (downloaded from http://www.uniprot.org/uniprot/?query=*&fil=organism%3A%22Homo+sapiens+%28Human%29+%5B9606%5D%22, columns: Entry; Entry name; Gene names(primary))
-
-
+##  (downloaded from http://www.uniprot.org/uniprot/?query=*&fil=organism%3A%22Homo+sapiens+%28Human%29+%5B9606%5D%22, columns: Entry; Entry name; Gene names(primary)
 bash Code/preparePathStructures.sh
 
 #######################################################
@@ -225,7 +222,10 @@ Rscript Code/prepareNormalizedMatricesDirectFinal.R
 ### Code/motifProcessing/prepareMotifClusters.sh
 ###
 ### input: http://tfclass.bioinf.med.uni-goettingen.de/suplementary/TFClass.obo
-### output interimData/tfClassifications.txt
+### output: interimData/tfClassifications.txt
+### output: interimData/subfamilyNames.txt
+### output: interimData/familyNames.txt
+###
 ### columns owl-id; uniprot-id
 ### 
 ### Details: 
@@ -599,3 +599,31 @@ Rscript Code/makeFigures/prepareRankingTablesPerSubFamilyFinalRoadmap.R
 ## output: PaperDocs/Images/roadmapEnrichmentInEncodeStrata.png
 #######################################################
 Rscript  Code/makeFigures/prepareRoadmapReplicationPlot.R
+
+#######################################################
+## Rscript  Code/roadmapPipeline.R
+## pipeline to process roadmap data
+#######################################################
+Rscript  Code/roadmapPipeline.R
+
+#######################################################
+## Rscript  Code/completeMotifCallingEvaluationPipeline.sh
+## pipeline to evaluate motif calling pipeline with 
+## ChIP-seq
+#######################################################
+Rscript  Code/completeMotifCallingEvaluationPipeline.sh
+
+#######################################################
+## Rscript  Code/completeHistonePipeline.sh
+## pipeline to process histone data
+#######################################################
+Rscript  Code/completeHistonePipeline.sh
+
+#######################################################
+## Rscript Code/prepareTables.R
+##
+## input: interimData/alldf1SubFam.RDat
+## input: interimData/subfamilyNames.txt
+## input: interimData/familyNames.txt
+#######################################################
+Rscript Code/prepareTables.R

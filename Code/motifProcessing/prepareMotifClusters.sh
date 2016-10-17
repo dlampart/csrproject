@@ -4,6 +4,9 @@
 ###
 ### input: http://tfclass.bioinf.med.uni-goettingen.de/suplementary/TFClass.obo
 ### output interimData/tfClassifications.txt
+### output interimData/subfamilyNames.txt
+### output interimData/familyNames.txt
+###
 ### columns owl-id; uniprot-id
 ### 
 ### Details: 
@@ -25,3 +28,5 @@ more interimData/tmp2 | perl -pe 's/alt_id.+\t//' > interimData/tmp3
 ### remove id signifier strings:
 more interimData/tmp3 | perl -pe 's/id: //' | perl -pe 's/xref: UNIPROT://' >  interimData/tfClassifications.txt
 ### 
+more  Data/TFClass.obo | perl -pe 's/(id: \d+\.\d+.\d+.\d+)\n/$1\t/mg && print' | perl -nle '/(id: \d+\.\d+.\d+.\d+)\t/ && print' | cut -f2,3 | perl -ple 's/id: //' | perl -ple 's/name: //' > interimData/subfamilyNames.txt
+more  Data/TFClass.obo | perl -pe 's/(id: \d+\.\d+.\d+)\n/$1\t/mg && print' | perl -nle '/(id: \d+\.\d+.\d+)\t/ && print' | cut -f2,3 | perl -ple 's/id: //' | perl -ple 's/name: //' > interimData/familyNames.txt
