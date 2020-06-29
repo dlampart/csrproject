@@ -65,7 +65,7 @@ likeli_h=function(data,delta){
 }
 
 my_n=length(indexList)
-all_betas=list()
+all_betas_l=list()
 all_chisq=rep(0,my_n)
 all_pvals=rep(0,my_n)
 all_deltas=rep(0,my_n)
@@ -99,8 +99,9 @@ sigmasq_g_lm=(1/length(data$y))*sum(((data$y-data$x%*%beta_lm)^2)/(data$S+delta_
 sigmasq_e_lm=delta_lm*sigmasq_g_lm
 all_chisq[i]=chisq
 all_pvals[i]=pval_lm
+all_betas_l[[i]]=beta_lm
 }
 
-fast_lmm_group=list(pval=all_pvals,chi_sq=all_chisq)
+fast_lmm_group=list(pval=all_pvals,chi_sq=all_chisq,all_betas_l=all_betas_l)
 return(fast_lmm_group)
 }
